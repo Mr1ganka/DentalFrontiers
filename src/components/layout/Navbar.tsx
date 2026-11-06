@@ -11,8 +11,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--color-background)]/80 backdrop-blur-md">
-      <div className="container flex h-20 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b border-[#003399]/10 bg-[var(--color-background)]/95 backdrop-blur-md shadow-xs">
+      <div className="container flex min-h-[96px] py-2 items-center justify-between">
         <Logo />
 
         {/* Desktop Nav */}

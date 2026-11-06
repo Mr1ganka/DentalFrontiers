@@ -15,13 +15,14 @@ export default function Home() {
     "image": "https://dentalfrontiers.com/logo.png",
     "@id": "https://dentalfrontiers.com",
     "url": "https://dentalfrontiers.com",
-    "telephone": "+1234567890",
+    "telephone": "+917003372255",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "123 Smile Street",
-      "addressLocality": "London",
-      "postalCode": "W1 2AB",
-      "addressCountry": "UK"
+      "streetAddress": "Ground Floor, D/63, Sammilani Park Road, Survey Park, Santoshpur",
+      "addressLocality": "Kolkata",
+      "addressRegion": "West Bengal",
+      "postalCode": "700075",
+      "addressCountry": "IN"
     }
   };
 
@@ -32,7 +33,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Services />
       <People />
       <Reviews />

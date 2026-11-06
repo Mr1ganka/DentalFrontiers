@@ -59,17 +59,15 @@ export function Footer() {
         <div>
           <h3 className="mb-6 font-heading text-lg font-medium">Hours</h3>
           <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <li className="flex justify-between"><span>Mon - Thu</span> <span>{clinicConfig.hours.monday}</span></li>
-            <li className="flex justify-between"><span>Friday</span> <span>{clinicConfig.hours.friday}</span></li>
-            <li className="flex justify-between"><span>Saturday</span> <span>{clinicConfig.hours.saturday}</span></li>
-            <li className="flex justify-between"><span>Sunday</span> <span>{clinicConfig.hours.sunday}</span></li>
+            <li className="flex justify-between"><span>Mon - Sat</span> <span>10:00 AM - 8:00 PM</span></li>
+            <li className="flex justify-between"><span>Sunday</span> <span>Closed</span></li>
           </ul>
         </div>
       </div>
 
       <div className="border-t py-8">
         <div className="container flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-          <p>© {"2023"} {clinicConfig.name}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {clinicConfig.name}. All rights reserved.</p>
           <ul className="flex gap-6">
             {navigationConfig.footerNav.map((item) => (
               <li key={item.title}>

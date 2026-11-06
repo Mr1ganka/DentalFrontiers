@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || undefined;
+
 const nextConfig: NextConfig = {
   output: "export",
+  basePath,
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -22,3 +25,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+

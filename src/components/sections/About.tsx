@@ -1,29 +1,94 @@
 import Image from "next/image";
 import { clinicConfig } from "@/config/clinic";
+import { HeartHandshake, Microscope, Sparkles, CheckCircle2 } from "lucide-react";
 
 export function About() {
+  const pillars = [
+    {
+      icon: HeartHandshake,
+      title: "Zero-Anxiety Sensory Comfort",
+      desc: "Warm blankets, soothing acoustics, and gentle sedation protocols ensure you remain completely relaxed.",
+    },
+    {
+      icon: Microscope,
+      title: "Micro-Precision Dentistry",
+      desc: "Surgical magnification and laser-assisted diagnostics eliminate invasive drilling and preserve healthy enamel.",
+    },
+    {
+      icon: Sparkles,
+      title: "Biological & Aesthetic Harmony",
+      desc: "We prioritize biocompatible ceramic materials engineered to match your natural smile's shade and vitality.",
+    },
+  ];
+
   return (
-    <section id="about" className="section-padding bg-[var(--color-background)]">
+    <section id="about" className="section-padding bg-[var(--color-background)] relative">
       <div className="container">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="relative aspect-square md:aspect-[4/3] lg:aspect-square overflow-hidden rounded-[var(--radius)]">
-            <Image
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop"
-              alt="Patient consultation"
-              fill
-              className="object-cover"
-            />
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          {/* Left Column Image with Overlapping Detail */}
+          <div className="relative lg:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius)] shadow-xl border border-black/5">
+              <Image
+                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop"
+                alt="Gentle dentist consultation with patient at Dental Frontiers"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </div>
+            {/* Small Aesthetic Metric Pill */}
+            {/* <div className="absolute -bottom-6 right-4 sm:-right-4 rounded-xl border border-neutral-200/80 bg-white p-4 shadow-lg">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)]">
+                  <CheckCircle2 className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-neutral-900">15+ Years</p>
+                  <p className="text-xs text-muted-foreground">Of Clinical Mastery</p>
+                </div>
+              </div>
+            </div> */}
           </div>
-          <div className="flex flex-col gap-6 lg:pl-12">
-            <h2 className="font-heading text-4xl text-[var(--color-primary)] md:text-5xl">
-              About {clinicConfig.name}
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              We believe that visiting the dentist shouldn't be a source of anxiety. Our clinic was founded on the principle of providing exceptional dental care in an environment that feels more like a wellness retreat than a clinical setting.
+
+          {/* Right Column Content */}
+          <div className="flex flex-col gap-6 lg:col-span-7 lg:pl-6">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+                Our Philosophy & Foundation
+              </span>
+              <h2 className="mt-2 font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--color-primary)] tracking-tight">
+                About {clinicConfig.name}
+              </h2>
+            </div>
+
+            <p className="text-lg leading-relaxed text-neutral-700">
+              We founded {clinicConfig.name} on a singular premise: world-class dental care should feel restorative rather than clinical. By replacing cold sterile routines with empathy and calm aesthetics, we make your dental health an experience to look forward to.
             </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Our holistic approach integrates advanced technology with genuine empathy, ensuring that every treatment plan is tailored to your unique needs, comfort level, and long-term oral health goals.
-            </p>
+
+            {/* Three Structured Pillars */}
+            <div className="mt-2 grid gap-5 sm:grid-cols-1">
+              {pillars.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-4 rounded-xl border border-[#003399]/10 bg-[var(--color-secondary)]/25 p-4 transition-colors hover:bg-[var(--color-secondary)]/50"
+                  >
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-[var(--color-primary)] shadow-xs">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-base font-semibold text-neutral-900">
+                        {item.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
