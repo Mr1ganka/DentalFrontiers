@@ -16,6 +16,8 @@ const notoSansDisplay = Noto_Sans_Display({
   subsets: ["latin"],
 });
 
+import { getAssetPath } from "@/lib/assets";
+
 export const metadata: Metadata = {
   title: "Dental Frontiers | Multi-speciality dental clinic",
   description: "Modern, multi-speciality premium dental clinic providing gentle, advanced dental care.",
@@ -29,11 +31,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
-      { url: "/favicon.ico" },
+      { url: getAssetPath("/icon.png"), type: "image/png" },
+      { url: getAssetPath("/favicon.ico") },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: "/favicon.ico",
+    apple: [{ url: getAssetPath("/apple-icon.png"), sizes: "180x180", type: "image/png" }],
+    shortcut: getAssetPath("/favicon.ico"),
   },
   alternates: {
     canonical: "https://dentalfrontiers.com",

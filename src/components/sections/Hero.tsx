@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/Button";
 import { ArrowRight } from "lucide-react";
+import { getAssetPath } from "@/lib/assets";
 
 export function Hero() {
   return (
@@ -70,7 +71,7 @@ export function Hero() {
         <div className="relative lg:col-span-5">
           <div className="relative aspect-[4/5] w-full rounded-[var(--radius)] overflow-hidden shadow-2xl border border-white/60">
             <Image
-              src="/hero/hero.jpg"
+              src={getAssetPath("/hero/hero.jpg")}
               alt="Modern serene dental clinic interior at Dental Frontiers"
               fill
               priority

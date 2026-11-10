@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Service } from "@/data/services";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
+import { getAssetPath } from "@/lib/assets";
 
 export function ServiceCard({ service }: { service: Service }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -24,7 +25,7 @@ export function ServiceCard({ service }: { service: Service }) {
       <div className="flex flex-col flex-1 justify-between">
         <div className="relative h-64 w-full overflow-hidden bg-muted">
           <Image
-            src={service.image}
+            src={getAssetPath(service.image)}
             alt={service.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

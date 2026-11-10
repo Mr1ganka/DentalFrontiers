@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Blog } from "@/data/blogs";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import Link from "next/link";
+import { getAssetPath } from "@/lib/assets";
 
 export function BlogCard({ blog }: { blog: Blog }) {
   return (
@@ -11,7 +12,7 @@ export function BlogCard({ blog }: { blog: Blog }) {
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
         <Image
-          src={blog.image}
+          src={getAssetPath(blog.image)}
           alt={blog.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { clinicConfig } from "@/config/clinic";
 import { HeartHandshake, Microscope, Sparkles } from "lucide-react";
+import { getAssetPath } from "@/lib/assets";
 
 export function About() {
   const pillars = [
@@ -29,7 +30,7 @@ export function About() {
           <div className="relative lg:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius)] shadow-xl border border-black/5">
               <Image
-                src="/services/root-canal.jpg"
+                src={getAssetPath("/services/root-canal.jpg")}
                 alt="Gentle dentist consultation with patient at Dental Frontiers"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"

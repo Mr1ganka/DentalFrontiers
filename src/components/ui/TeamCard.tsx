@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { TeamMember } from "@/data/team";
+import { getAssetPath } from "@/lib/assets";
 
 export function TeamCard({ member }: { member: TeamMember }) {
   return (
     <div className="group flex h-[500px] w-[280px] shrink-0 flex-col overflow-hidden rounded-[var(--radius)] border border-[#003399]/10 bg-white shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:h-[520px] sm:w-[320px]">
       <div className="relative h-[300px] w-full shrink-0 overflow-hidden bg-muted sm:h-[320px]">
         <Image
-          src={member.image}
+          src={getAssetPath(member.image)}
           alt={member.name}
           fill
           sizes="(max-width: 640px) 280px, 320px"

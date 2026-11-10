@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { clinicConfig } from "@/config/clinic";
+import { getAssetPath } from "@/lib/assets";
 
 interface LogoProps {
   className?: string;
@@ -15,7 +16,7 @@ export function Logo({ className = "", isFooter = false }: LogoProps) {
       aria-label={clinicConfig.name}
     >
       <Image
-        src="/logo.png"
+        src={getAssetPath("/logo.png")}
         alt={clinicConfig.name}
         width={1448}
         height={325}
