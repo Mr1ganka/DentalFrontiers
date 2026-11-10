@@ -1,5 +1,5 @@
 import { Review } from "@/data/reviews";
-import { Star, CheckCircle, Quote, ArrowUpRight } from "lucide-react";
+import { Star, Quote, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export function ReviewCard({ review }: { review: Review }) {
@@ -54,7 +54,7 @@ export function ReviewCard({ review }: { review: Review }) {
         <div className="relative mb-5">
           <Quote className="h-5 w-5 text-[var(--color-primary)]/20 mb-1.5" />
           <p className="text-sm leading-relaxed text-neutral-700 italic">
-            "{review.text}"
+            &ldquo;{review.text}&rdquo;
           </p>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { ContactForm } from "../forms/ContactForm";
-import { Button } from "../ui/Button";
-import { MessageCircle, Phone, Mail, Clock, MapPin, Sparkles } from "lucide-react";
+import { MessageCircle, Phone, Mail, Clock } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { clinicConfig } from "@/config/clinic";
 import Link from "next/link";

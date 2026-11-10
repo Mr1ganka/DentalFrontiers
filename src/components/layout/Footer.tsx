@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="border-t bg-[var(--color-secondary)]/50 pt-16">
       <div className="container grid gap-12 pb-16 md:grid-cols-4">
         <div className="flex flex-col gap-6">
-          <Logo />
+          <Logo isFooter />
           <p className="max-w-xs text-sm text-muted-foreground">
             {clinicConfig.description}
           </p>

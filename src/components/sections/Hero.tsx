@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/Button";
-import { Star, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
@@ -70,7 +70,7 @@ export function Hero() {
         <div className="relative lg:col-span-5">
           <div className="relative aspect-[4/5] w-full rounded-[var(--radius)] overflow-hidden shadow-2xl border border-white/60">
             <Image
-              src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200&auto=format&fit=crop"
+              src="/hero/hero.jpg"
               alt="Modern serene dental clinic interior at Dental Frontiers"
               fill
               priority

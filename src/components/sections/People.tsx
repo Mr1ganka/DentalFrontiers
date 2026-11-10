@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { team } from "@/data/team";
 import { TeamCard } from "../ui/TeamCard";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
-import { Button } from "../ui/Button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function People() {
-  const [isPaused, setIsPaused] = useState(false);
   const isPausedRef = useRef(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -51,7 +49,6 @@ export function People() {
   const scroll = (direction: "left" | "right") => {
     // 1. Immediately kill the continuous animation so it never cancels smooth scroll
     isPausedRef.current = true;
-    setIsPaused(true);
     if (rafIdRef.current) {
       cancelAnimationFrame(rafIdRef.current);
     }
@@ -80,68 +77,23 @@ export function People() {
     if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
     resumeTimeoutRef.current = setTimeout(() => {
       isPausedRef.current = false;
-      setIsPaused(false);
     }, 4500);
-  };
-
-  const togglePause = () => {
-    const nextState = !isPaused;
-    isPausedRef.current = nextState;
-    setIsPaused(nextState);
   };
 
   return (
     <section id="people" className="section-padding bg-[var(--color-secondary)]/30 overflow-hidden">
       <div className="container relative">
         {/* Section Header */}
-        <div className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
-              Multi-Speciality Clinical Faculty
-            </span>
-            <h2 className="mb-3 font-heading text-4xl text-[var(--color-primary)] md:text-5xl tracking-tight">
-              Our Clinical Team
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Meet our team of MDS dental specialists and caring clinicians committed to gentle, minimally-invasive oral healthcare.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              size="sm"
-              type="button"
-              onClick={togglePause}
-              className="text-xs h-9 px-3 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white gap-1.5 cursor-pointer"
-            >
-              {isPaused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
-              <span>{isPaused ? "Resume" : "Pause"}</span>
-            </Button>
-
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                onClick={() => scroll("left")}
-                aria-label="Scroll left"
-                className="h-9 w-9 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white cursor-pointer"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                onClick={() => scroll("right")}
-                aria-label="Scroll right"
-                className="h-9 w-9 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white cursor-pointer"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+        <div className="mb-10 max-w-2xl">
+          <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+            Multi-Speciality Clinical Faculty
+          </span>
+          <h2 className="mb-3 font-heading text-4xl text-[var(--color-primary)] md:text-5xl tracking-tight">
+            Our Clinical Team
+          </h2>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Meet our team of MDS dental specialists and caring clinicians committed to gentle, minimally-invasive oral healthcare.
+          </p>
         </div>
 
         {/* Carousel Grid with Side Navigation Buttons */}
@@ -170,19 +122,17 @@ export function People() {
             ref={scrollContainerRef}
             onMouseEnter={() => {
               isPausedRef.current = true;
-              setIsPaused(true);
             }}
             onMouseLeave={() => {
               isPausedRef.current = false;
-              setIsPaused(false);
             }}
-            className="flex gap-6 overflow-x-auto px-2 sm:px-4 py-2 hide-scrollbar"
+            className="flex items-stretch gap-6 overflow-x-auto px-2 sm:px-4 py-4 hide-scrollbar"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {revolvingTeam.map((member, index) => (
               <div
                 key={`${member.id}-${index}`}
-                className="shrink-0 transition-transform duration-300 hover:scale-[1.02]"
+                className="flex shrink-0 transition-transform duration-300 hover:scale-[1.02]"
               >
                 <TeamCard member={member} />
               </div>

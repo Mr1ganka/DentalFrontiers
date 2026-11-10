@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { reviews } from "@/data/reviews";
 import { ReviewCard } from "../ui/ReviewCard";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
-import { Button } from "../ui/Button";
 import { clinicConfig } from "@/config/clinic";
 import Link from "next/link";
 
@@ -57,7 +56,7 @@ export function Reviews() {
             </p>
           </div>
 
-          {/* Action Button & Carousel Controls */}
+          {/* Action Button */}
           <div className="flex items-center gap-3">
             <Link
               href={clinicConfig.mapsLink}
@@ -68,30 +67,6 @@ export function Reviews() {
               <span>View All on Google Maps</span>
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
-
-            {/* Header Controls - visible on all devices */}
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                onClick={() => scroll("left")}
-                aria-label="Scroll left"
-                className="h-9 w-9 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white cursor-pointer"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                onClick={() => scroll("right")}
-                aria-label="Scroll right"
-                className="h-9 w-9 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white cursor-pointer"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
           </div>
         </div>
 

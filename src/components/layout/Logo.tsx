@@ -1,5 +1,6 @@
-import { clinicConfig } from "@/config/clinic";
+import Image from "next/image";
 import Link from "next/link";
+import { clinicConfig } from "@/config/clinic";
 
 interface LogoProps {
   className?: string;
@@ -8,15 +9,19 @@ interface LogoProps {
 
 export function Logo({ className = "", isFooter = false }: LogoProps) {
   return (
-    <Link href="/" className={`group flex flex-col justify-center ${className}`}>
-      {/* Clinic Name - Alegreya SC (size 48) */}
-      <span className="font-clinic text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold tracking-tight text-[var(--color-primary)] leading-none transition-colors group-hover:opacity-90">
-        {clinicConfig.name}
-      </span>
-      {/* Subtitle - Noto Sans Display (size 24) */}
-      <span className="font-heading text-xs sm:text-sm md:text-lg lg:text-[24px] font-medium tracking-normal text-[var(--color-tertiary)] leading-tight mt-1 transition-colors group-hover:text-neutral-700">
-        {clinicConfig.tagline}
-      </span>
+    <Link
+      href="/"
+      className={`group inline-flex items-center transition-opacity hover:opacity-90 ${className}`}
+      aria-label={clinicConfig.name}
+    >
+      <Image
+        src="/logo.png"
+        alt={clinicConfig.name}
+        width={1448}
+        height={325}
+        priority={!isFooter}
+        className={isFooter ? "h-10 sm:h-11 w-auto object-contain" : "h-11 sm:h-12 md:h-14 w-auto object-contain"}
+      />
     </Link>
   );
 }

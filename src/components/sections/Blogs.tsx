@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { blogs } from "@/data/blogs";
 import { BlogCard } from "../ui/BlogCard";
-import { BookOpen, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
-import { Button } from "../ui/Button";
+import { BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
 export function Blogs() {
-  const [isPaused, setIsPaused] = useState(false);
   const isPausedRef = useRef(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -49,7 +47,6 @@ export function Blogs() {
 
   const scroll = (direction: "left" | "right") => {
     isPausedRef.current = true;
-    setIsPaused(true);
     if (rafIdRef.current) {
       cancelAnimationFrame(rafIdRef.current);
     }
@@ -77,69 +74,24 @@ export function Blogs() {
     if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
     resumeTimeoutRef.current = setTimeout(() => {
       isPausedRef.current = false;
-      setIsPaused(false);
     }, 4500);
-  };
-
-  const togglePause = () => {
-    const nextState = !isPaused;
-    isPausedRef.current = nextState;
-    setIsPaused(nextState);
   };
 
   return (
     <section id="blogs" className="section-padding bg-[var(--color-background)] overflow-hidden">
       <div className="container relative">
         {/* Section Header */}
-        <div className="mb-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)]/20 bg-[var(--color-secondary)]/50 px-3.5 py-1 text-xs font-semibold tracking-wider text-[var(--color-primary)] uppercase">
-              <BookOpen className="h-3.5 w-3.5" />
-              Dental Wisdom & Clinical Insights
-            </div>
-            <h2 className="mb-3 font-heading text-4xl text-[var(--color-primary)] md:text-5xl tracking-tight">
-              The Clinical Journal
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Evidence-based guides, smile aesthetics, and patient wellness breakthroughs published by our clinical team.
-            </p>
+        <div className="mb-10 max-w-2xl">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)]/20 bg-[var(--color-secondary)]/50 px-3.5 py-1 text-xs font-semibold tracking-wider text-[var(--color-primary)] uppercase">
+            <BookOpen className="h-3.5 w-3.5" />
+            Dental Wisdom & Clinical Insights
           </div>
-
-          <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              size="sm"
-              type="button"
-              onClick={togglePause}
-              className="text-xs h-9 px-3 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white gap-1.5 cursor-pointer"
-            >
-              {isPaused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
-              <span>{isPaused ? "Resume" : "Pause"}</span>
-            </Button>
-
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                onClick={() => scroll("left")}
-                aria-label="Scroll left"
-                className="h-9 w-9 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white cursor-pointer"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                type="button"
-                onClick={() => scroll("right")}
-                aria-label="Scroll right"
-                className="h-9 w-9 border-neutral-300 hover:border-[var(--color-primary)] hover:bg-white cursor-pointer"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+          <h2 className="mb-3 font-heading text-4xl text-[var(--color-primary)] md:text-5xl tracking-tight">
+            The Clinical Journal
+          </h2>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Evidence-based guides, smile aesthetics, and patient wellness breakthroughs published by our clinical team.
+          </p>
         </div>
 
         {/* Carousel Grid with Side Navigation Buttons */}
@@ -168,11 +120,9 @@ export function Blogs() {
             ref={scrollContainerRef}
             onMouseEnter={() => {
               isPausedRef.current = true;
-              setIsPaused(true);
             }}
             onMouseLeave={() => {
               isPausedRef.current = false;
-              setIsPaused(false);
             }}
             className="flex gap-6 overflow-x-auto px-2 sm:px-4 py-2 hide-scrollbar"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
