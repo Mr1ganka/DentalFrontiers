@@ -13,16 +13,16 @@ export const navigationConfig = {
       href: "#services",
     },
     {
-      title: "Blogs",
-      href: "#blogs",
-    },
-    {
       title: "People",
       href: "#people",
     },
     {
       title: "Reviews",
       href: "#reviews",
+    },
+    {
+      title: "Blogs",
+      href: "#blogs",
     },
   ],
   contactCTA: {

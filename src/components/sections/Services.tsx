@@ -40,7 +40,7 @@ export function Services() {
               </p>
             </div>
           </div>
-          <Button asChild size="lg" className="shrink-0">
+          <Button asChild size="lg" className="w-full sm:w-auto shrink-0">
             <Link href="#contact">Speak with a Specialist</Link>
           </Button>
         </div>

@@ -58,7 +58,7 @@ export function ContactForm() {
           name="name"
           required
           className="h-12 rounded-md border bg-transparent px-4 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-          placeholder="Jane Doe"
+          placeholder="e.g. Rahul Sharma"
         />
       </div>
 
@@ -71,7 +71,7 @@ export function ContactForm() {
             name="email"
             required
             className="h-12 rounded-md border bg-transparent px-4 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-            placeholder="jane@example.com"
+            placeholder="you@example.com"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -83,25 +83,25 @@ export function ContactForm() {
             required
             pattern="[0-9\+\-\s\(\)]+"
             className="h-12 rounded-md border bg-transparent px-4 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-            placeholder="+1 (555) 000-0000"
+            placeholder="+91 98765 43210"
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="text-sm font-medium">Message</label>
+        <label htmlFor="message" className="text-sm font-medium">Message / Requested Care</label>
         <textarea
           id="message"
           name="message"
           required
           rows={4}
           className="rounded-md border bg-transparent p-4 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-          placeholder="How can we help you today?"
+          placeholder="Please describe the dental treatment or consultation you are looking for..."
         ></textarea>
       </div>
 
       <Button type="submit" size="lg" className="w-full md:w-auto self-start" disabled={status === "submitting"}>
-        {status === "submitting" ? "Sending..." : "Send Message"}
+        {status === "submitting" ? "Submitting Request..." : "Send Appointment Request"}
       </Button>
 
       {status === "success" && (
