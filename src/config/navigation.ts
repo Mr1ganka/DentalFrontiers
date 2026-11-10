@@ -2,32 +2,32 @@ export const navigationConfig = {
   mainNav: [
     {
       title: "Home",
-      href: "/#home",
+      href: "#home",
     },
     // {
     //   title: "About",
-    //   href: "/#about",
+    //   href: "#about",
     // },
     {
       title: "Services",
-      href: "/#services",
+      href: "#services",
     },
     {
       title: "Blogs",
-      href: "/#blogs",
+      href: "#blogs",
     },
     {
       title: "People",
-      href: "/#people",
+      href: "#people",
     },
     {
       title: "Reviews",
-      href: "/#reviews",
+      href: "#reviews",
     },
   ],
   contactCTA: {
     title: "Contact Us",
-    href: "/#contact",
+    href: "#contact",
   },
   footerNav: [
     {

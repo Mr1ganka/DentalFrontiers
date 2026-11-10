@@ -36,13 +36,13 @@ export function Hero() {
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Button size="lg" asChild className="h-12 px-8 text-base shadow-md shadow-[#003399]/25 bg-[var(--color-primary)] hover:bg-[#002b80] text-white">
-              <Link href="/#contact" className="flex items-center gap-2">
+              <Link href="#contact" className="flex items-center gap-2">
                 <span>Book Appointment</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="h-12 px-8 text-base border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5">
-              <Link href="/#services">Explore All Services</Link>
+              <Link href="#services">Explore All Services</Link>
             </Button>
           </div>
 

@@ -98,7 +98,7 @@ export function ServiceCard({ service }: { service: Service }) {
         {/* Action Button inside Raised Card */}
         <div className="pt-3 border-t border-[#003399]/15 shrink-0 mt-2">
           <Link
-            href="/#contact"
+            href="#contact"
             onClick={(e) => e.stopPropagation()}
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--color-primary)] py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-[#002b80] active:scale-[0.98]"
           >

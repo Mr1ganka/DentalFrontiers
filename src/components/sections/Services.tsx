@@ -41,7 +41,7 @@ export function Services() {
             </div>
           </div>
           <Button asChild size="lg" className="shrink-0">
-            <Link href="/#contact">Speak with a Specialist</Link>
+            <Link href="#contact">Speak with a Specialist</Link>
           </Button>
         </div>
       </div>

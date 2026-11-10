@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { clinicConfig } from "@/config/clinic";
 import { navigationConfig } from "@/config/navigation";
-import { Globe, Heart, MessageSquare } from "lucide-react";
 
 export function Footer() {
   return (
@@ -13,17 +12,6 @@ export function Footer() {
           <p className="max-w-xs text-sm text-muted-foreground">
             {clinicConfig.description}
           </p>
-          <div className="flex gap-4">
-            <Link href={clinicConfig.socials.instagram} target="_blank" rel="noopener noreferrer">
-              <Heart className="h-5 w-5 text-muted-foreground transition-colors hover:text-[var(--color-primary)]" />
-            </Link>
-            <Link href={clinicConfig.socials.facebook} target="_blank" rel="noopener noreferrer">
-              <Globe className="h-5 w-5 text-muted-foreground transition-colors hover:text-[var(--color-primary)]" />
-            </Link>
-            <Link href={clinicConfig.socials.twitter} target="_blank" rel="noopener noreferrer">
-              <MessageSquare className="h-5 w-5 text-muted-foreground transition-colors hover:text-[var(--color-primary)]" />
-            </Link>
-          </div>
         </div>
 
         <div>

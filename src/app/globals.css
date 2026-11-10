@@ -22,6 +22,10 @@
   --color-foreground: #171717;
 }
 
+html {
+  scroll-padding-top: 104px;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
